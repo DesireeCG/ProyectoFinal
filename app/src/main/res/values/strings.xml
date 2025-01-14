@@ -11,5 +11,9 @@
     <string name="menu_carrito">Carrito</string>
     <string name="menu_pedidos">Pedidos</string>
     <string name="menu_slideshow">Productos</string>
-
+    <string-array name="product_sizes">
+        <item>Pequeño</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+    </string-array>
 </resources>
