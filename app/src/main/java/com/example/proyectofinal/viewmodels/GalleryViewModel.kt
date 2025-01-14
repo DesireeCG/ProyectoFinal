@@ -1,4 +1,4 @@
-package com.example.proyectofinal.ui.gallery
+package com.example.proyectofinal.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
