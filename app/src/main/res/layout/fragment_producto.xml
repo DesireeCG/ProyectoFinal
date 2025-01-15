@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink"
     tools:context=".fragments.GalleryFragment">
 
     <!-- Imagen del producto -->
@@ -111,7 +112,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="8dp">
 
@@ -132,12 +133,27 @@
                 android:id="@+id/productDetailsContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:padding="8dp"
                 android:text="Descripción completa del producto, características, material, etc."
                 android:textSize="14sp"
-                android:visibility="gone"
-                android:lineSpacingExtra="4dp"
-                android:padding="8dp" />
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/productopiniones"
+                android:layout_width="395dp"
+                android:layout_height="61dp"
+                android:drawableEnd="@drawable/ic_arrow_down"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="Opiniones"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
+
+
+
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Botón de agregar al carrito -->
