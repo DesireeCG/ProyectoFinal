@@ -1,4 +1,7 @@
 package com.example.proyectofinal.activities
 
-class ThanksActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class ThanksActivity: AppCompatActivity() {
+
 }
