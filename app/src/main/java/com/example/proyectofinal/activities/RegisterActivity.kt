@@ -1,13 +1,24 @@
 package com.example.proyectofinal.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proyectofinal.R
+import com.example.proyectofinal.data.Usuario
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
+import com.google.firebase.messaging.FirebaseMessaging
 
 class RegisterActivity : AppCompatActivity() {
+    private val database = Firebase.database
+    private val myRef = database.getReference("Usuarios")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,5 +28,61 @@ class RegisterActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val btnGuardar = findViewById<Button>(R.id.btnGuardarGuardar)
+        val btnRegresar = findViewById<Button>(R.id.btnGuardarRegresar)
+
+        btnRegresar.setOnClickListener{
+            val mainIntent = Intent(this, LoginActivity::class.java)
+            startActivity(mainIntent)
+            finish() // Finalizar la actividad actual
+        }
+
+        btnGuardar.setOnClickListener{
+            agregarUsuario()
+        }
+    }
+
+    private fun agregarUsuario() {
+        val usuarioId = myRef.push().key!!
+        val edtUsuario = findViewById<EditText>(R.id.edtGuardarUsuario)
+        val edtClave = findViewById<EditText>(R.id.edtGuardarClave)
+        val edtNombre = findViewById<EditText>(R.id.edtGuardarNombre)
+        val edtCorreo = findViewById<EditText>(R.id.edtGuardarCorreo)
+
+        // Obtén los valores de los EditText
+        val usuario = edtUsuario.text.toString().trim()
+        val clave = edtClave.text.toString().trim()
+        val nombre = edtNombre.text.toString().trim()
+        val correo = edtCorreo.text.toString().trim()
+
+        // Validar que ningún campo esté vacío
+        if (usuario.isEmpty() || clave.isEmpty() || nombre.isEmpty() || correo.isEmpty()) {
+            Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        // Obtén el token de Firebase Messaging
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Toast.makeText(this, "No se pudo obtener el token", Toast.LENGTH_LONG).show()
+                return@addOnCompleteListener
+            }
+
+            val token = task.result
+
+            // Crea el objeto Usuario con los valores
+            val empleado = Usuario(usuarioId, usuario, clave, nombre, correo, token)
+            myRef.child(usuarioId).setValue(empleado).addOnSuccessListener {
+                Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_LONG).show()
+                // Redirigir al MainActivity
+                val mainIntent = Intent(this, LoginActivity::class.java)
+                startActivity(mainIntent)
+                finish() // Finalizar la actividad actual
+            }.addOnFailureListener { exception ->
+                Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_LONG).show()
+            }
+        }
+
     }
 }
