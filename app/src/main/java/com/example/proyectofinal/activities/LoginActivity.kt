@@ -53,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // Consultar en la base de datos
-        myRef.orderByChild("usuario").equalTo(usuario)
+        myRef.orderByChild("correo").equalTo(usuario)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
