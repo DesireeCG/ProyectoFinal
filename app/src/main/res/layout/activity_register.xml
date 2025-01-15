@@ -9,8 +9,6 @@
     tools:context=".activities.RegisterActivity">
 
     <!-- Título -->
-
-    <!-- Campo de nombre -->
     <TextView
         android:id="@+id/tv_register_title"
         android:layout_width="wrap_content"
@@ -22,11 +20,9 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="48dp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Campo de correo -->
-
+    <!-- Campo de nombre -->
     <EditText
         android:id="@+id/et_name"
         android:layout_width="0dp"
@@ -38,11 +34,10 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="24dp"
         app:layout_constraintTop_toBottomOf="@id/tv_register_title"
         app:layout_constraintWidth_percent="0.8" />
 
-    <!-- Campo de contraseña -->
+    <!-- Campo de correo -->
     <EditText
         android:id="@+id/et_register_email"
         android:layout_width="0dp"
@@ -54,11 +49,10 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/et_name"
         app:layout_constraintWidth_percent="0.8" />
 
-    <!-- Botón de registro -->
+    <!-- Campo de contraseña -->
     <EditText
         android:id="@+id/et_register_password"
         android:layout_width="0dp"
@@ -70,11 +64,10 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/et_register_email"
         app:layout_constraintWidth_percent="0.8" />
 
-    <!-- Texto para iniciar sesión -->
+    <!-- Botón de registro -->
     <Button
         android:id="@+id/btn_register"
         android:layout_width="0dp"
@@ -87,7 +80,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="24dp"
         app:layout_constraintTop_toBottomOf="@id/et_register_password"
         app:layout_constraintWidth_percent="0.8" />
 
@@ -102,6 +94,6 @@
         app:layout_constraintTop_toBottomOf="@id/btn_register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_margin="16dp" />
+        android:layout_marginTop="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
