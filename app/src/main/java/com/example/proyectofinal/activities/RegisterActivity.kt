@@ -29,14 +29,7 @@ class RegisterActivity : AppCompatActivity() {
             insets
         }
 
-        val btnGuardar = findViewById<Button>(R.id.btnGuardarGuardar)
-        val btnRegresar = findViewById<Button>(R.id.btnGuardarRegresar)
-
-        btnRegresar.setOnClickListener{
-            val mainIntent = Intent(this, LoginActivity::class.java)
-            startActivity(mainIntent)
-            finish() // Finalizar la actividad actual
-        }
+        val btnGuardar = findViewById<Button>(R.id.btn_register)
 
         btnGuardar.setOnClickListener{
             agregarUsuario()
@@ -45,19 +38,17 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun agregarUsuario() {
         val usuarioId = myRef.push().key!!
-        val edtUsuario = findViewById<EditText>(R.id.edtGuardarUsuario)
-        val edtClave = findViewById<EditText>(R.id.edtGuardarClave)
-        val edtNombre = findViewById<EditText>(R.id.edtGuardarNombre)
-        val edtCorreo = findViewById<EditText>(R.id.edtGuardarCorreo)
+        val edtClave = findViewById<EditText>(R.id.et_register_password)
+        val edtNombre = findViewById<EditText>(R.id.et_name)
+        val edtCorreo = findViewById<EditText>(R.id.et_register_email)
 
         // Obtén los valores de los EditText
-        val usuario = edtUsuario.text.toString().trim()
         val clave = edtClave.text.toString().trim()
         val nombre = edtNombre.text.toString().trim()
         val correo = edtCorreo.text.toString().trim()
 
         // Validar que ningún campo esté vacío
-        if (usuario.isEmpty() || clave.isEmpty() || nombre.isEmpty() || correo.isEmpty()) {
+        if (clave.isEmpty() || nombre.isEmpty() || correo.isEmpty()) {
             Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_LONG).show()
             return
         }
@@ -72,7 +63,7 @@ class RegisterActivity : AppCompatActivity() {
             val token = task.result
 
             // Crea el objeto Usuario con los valores
-            val empleado = Usuario(usuarioId, usuario, clave, nombre, correo, token)
+            val empleado = Usuario(usuarioId, clave, nombre, correo, token)
             myRef.child(usuarioId).setValue(empleado).addOnSuccessListener {
                 Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_LONG).show()
                 // Redirigir al MainActivity
