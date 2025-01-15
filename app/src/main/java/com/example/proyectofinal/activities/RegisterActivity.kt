@@ -63,7 +63,7 @@ class RegisterActivity : AppCompatActivity() {
             val token = task.result
 
             // Crea el objeto Usuario con los valores
-            val empleado = Usuario(usuarioId, clave, nombre, correo, token)
+            val empleado = Usuario(usuarioId, clave, nombre, correo)
             myRef.child(usuarioId).setValue(empleado).addOnSuccessListener {
                 Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_LONG).show()
                 // Redirigir al MainActivity
