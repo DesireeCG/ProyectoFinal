@@ -39,66 +39,12 @@
             android:elevation="2dp"
             android:layout_marginBottom="16dp">
 
-            <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_user" />
-
-            <LinearLayout
-                android:layout_width="0dp"
+            <!-- RecyclerView para productos -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_productos"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nombre Producto"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Descripción, color, tamaño"
-                    android:textColor="#7D7D7D"
-                    android:textSize="12sp" />
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$95 $70"
-                        android:textColor="#000000"
-                        android:layout_marginStart="8dp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ahorras un 25%"
-                    android:textColor="#FF6D6D"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <ImageButton
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/trash"
-                android:background="@android:color/transparent" />
+                android:layout_marginBottom="16dp" />
         </LinearLayout>
 
         <!-- Resumen -->
@@ -185,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PROCEDER AL PAGO"
-            android:backgroundTint="#FF6D6D"
+            android:backgroundTint="#FF84C6"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:layout_marginTop="16dp" />
