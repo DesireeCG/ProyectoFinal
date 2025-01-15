@@ -11,5 +11,6 @@
     <color name="light_black">#3B4754</color>
     <color name="dark_blue">#021F54</color>
     <color name="magenta">#B998B3</color>
+    <color name="color_botones">#E7A8B1</color>
 
 </resources>

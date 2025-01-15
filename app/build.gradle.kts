@@ -58,7 +58,7 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
-
+    implementation ("com.google.android.material:material:1.9.0")
     // Dependencia principal de Firebase
     //implementation ("com.google.firebase:firebase-bom:32.1.1") // Usa la última versión disponible del BOM (Bill of Materials)
 
