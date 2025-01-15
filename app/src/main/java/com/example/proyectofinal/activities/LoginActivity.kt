@@ -10,15 +10,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proyectofinal.R
+import com.example.proyectofinal.data.Producto
+import com.example.proyectofinal.data.Usuario
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 
 class LoginActivity : AppCompatActivity() {
     private val database = Firebase.database
     private val myRef = database.getReference("Usuarios")
+    private val productRef = database.getReference("Producto")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
                         if (usuarioValido) {
                             Toast.makeText(this@LoginActivity, "Ingreso exitoso", Toast.LENGTH_LONG).show()
                             // Redirigir a otra actividad después de un inicio exitoso
-                            val menuIntent = Intent(this@LoginActivity, ThanksActivity::class.java)
+                            val menuIntent = Intent(this@LoginActivity, MainActivity::class.java)
                             menuIntent.putExtra("usuarioActual", usuario)
                             startActivity(menuIntent)
                             finish() // Finalizar la actividad actual

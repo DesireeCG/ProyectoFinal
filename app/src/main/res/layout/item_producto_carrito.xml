@@ -45,14 +45,6 @@
                 android:text="Descripción, color, tamaño"
                 android:textColor="#7D7D7D"
                 android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/envio_producto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Envío: 2-4 semanas"
-                android:textColor="#7D7D7D"
-                android:textSize="12sp" />
         </LinearLayout>
 
         <ImageButton
