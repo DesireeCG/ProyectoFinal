@@ -30,10 +30,10 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        val edtUsuario = findViewById<EditText>(R.id.edtUsuario)
-        val edtClave = findViewById<EditText>(R.id.edtClave)
-        val btnIngresar = findViewById<Button>(R.id.btnIngresar)
-        val btnRegistrarse = findViewById<Button>(R.id.btnRegistrarse)
+        val edtUsuario = findViewById<EditText>(R.id.et_email)
+        val edtClave = findViewById<EditText>(R.id.et_password)
+        val btnIngresar = findViewById<Button>(R.id.btn_login)
+        val btnRegistrarse = findViewById<Button>(R.id.btn_registro)
 
         btnRegistrarse.setOnClickListener {
             val registrarseIntent = Intent(this, RegisterActivity::class.java)
